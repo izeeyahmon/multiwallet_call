@@ -14,10 +14,7 @@ pub async fn send_transaction(
         .to(contract_address)
         .data(transaction_data)
         .value(transaction_value);
-    let tx = client
-        .send_transaction(transaction_request, None)
-        .await?
-        .await?;
+    let tx = client.send_transaction(transaction_request, None).await?.await?;
     println!("Transaction Receipt: {:?}", &tx);
 
     Ok(())

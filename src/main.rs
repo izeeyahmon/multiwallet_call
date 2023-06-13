@@ -27,10 +27,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         let mut handles = Vec::new();
         for sk in private_keys.into_iter() {
             let wallet: LocalWallet = sk.parse::<LocalWallet>()?.with_chain_id(
-                std::env::var("CHAIN_ID")
-                    .expect("Need Chain ID")
-                    .parse::<u64>()
-                    .unwrap(),
+                std::env::var("CHAIN_ID").expect("Need Chain ID").parse::<u64>().unwrap(),
             );
             let provider = Provider::<Http>::try_from(&rpc_url)?;
             let contract = tx_hash_details.to.unwrap();
