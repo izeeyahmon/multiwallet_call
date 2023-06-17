@@ -1,7 +1,6 @@
 mod errors;
 mod readcsv;
 mod transaction;
-
 use crate::errors::print_help;
 use dotenv::dotenv;
 use ethers::prelude::*;
@@ -9,7 +8,6 @@ use ethers::types::H256;
 use readcsv::read_csv_from_path;
 use std::env;
 use transaction::send_transaction;
-
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let args: Vec<String> = env::args().collect();
